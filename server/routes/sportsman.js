@@ -18,4 +18,8 @@ router.put('/:id', (req, res) => {
     res.send(`edit sportsman with id = ${req.params.id}`);
 });
 
+router.get('/:id/sports', (req, res) => {
+    res.send(`Get all the sports of sportsman with id = ${req.params.id}`);
+});
+
 module.exports = router;
