@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 
+const SportModel = require('../models/SportModel');
+
 router.get('/', (req, res) => {
     // get all sports
     const sportName = req.query.sportName; // filter by name
