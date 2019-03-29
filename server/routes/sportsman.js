@@ -2,15 +2,28 @@
 const express = require('express');
 const router = express.Router();
 
+const SportsmanModel = require('../models/SportsmanModel');
+
 router.get('/', (req, res) => {
-    res.send('return all sportspeople');
+    SportsmanModel.find((err, sportspeople) => {
+        console.log('sportspeople are');
+        console.log(sportspeople)
+        res.send('return all sportspeople');
+    });
 });
 
 router.get('/:id', (req, res) => {
-    res.send(`return sportsperson with id = ${req.params.id}`);
+    SportsmanModel.findById(req.params.id, (err, sportsman) => {
+        console.log('sportsman:');
+        console.log(sportsman);
+        res.send(`return sportsperson with id = ${req.params.id}`);
+    });
 });
 
 router.post('/', (req, res) => {
+    const sportsman = new SportsmanModel({
+        
+    });
     res.send('add sportsman');
 });
 
