@@ -3,6 +3,13 @@
 const express = require('express');
 const app = express();
 const router = require('./routes/routes');
+const mongoose = require('mongoose');
+
+const dbConnectionString = 'mongodb://127.0.0.1/tinderbool';
+mongoose.connect(dbConnectionString, {useNewUrlParser: true});
+mongoose.connection.on('error', () => {
+    console.log('there was an error connection to mongodb');
+});
 
 app.use('/', router);
 
