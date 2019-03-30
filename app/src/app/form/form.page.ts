@@ -41,7 +41,7 @@ export class FormPage implements OnInit {
         return PasswordValidator.areEqual(formGroup);
       }
 		);
-		
+
 
     this.validations_form = this.formBuilder.group({
       name: new FormControl('', Validators.required),
@@ -65,24 +65,21 @@ export class FormPage implements OnInit {
     'email': [
       { type: 'required', message: 'Por favor coloque seu email.' },
       { type: 'pattern', message: 'Um válido de preferencia.' }
-],
-'password': [
-	{ type: 'required', message: 'Password is required.' },
-	{ type: 'minlength', message: 'Password must be at least 5 characters long.' },
-	{ type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number.' }
-],
-'confirm_password': [
-	{ type: 'required', message: 'Confirm password is required.' }
-],
-'matching_passwords': [
-	{ type: 'areEqual', message: 'Password mismatch.' }
-] };
+    ],
+    'password': [
+    	{ type: 'required', message: 'Password is required.' },
+    	{ type: 'minlength', message: 'Password must be at least 5 characters long.' },
+    	{ type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number.' }
+    ],
+    'confirm_password': [
+    	{ type: 'required', message: 'Confirm password is required.' }
+    ],
+    'matching_passwords': [
+    	{ type: 'areEqual', message: 'Password mismatch.' }
+    ] };
 
-onSubmit(values){
-	console.log(values);
-	this.router.navigate(["/user"]);
-}
+    onSubmit(values){
+    	console.log(values);
+    	this.router.navigate(["/user"]);
+    }
 	}
-	
-
-}
