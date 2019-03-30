@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { LoadingController } from '@ionic/angular';
+import { Router } from  "@angular/router";
+import { RestApiService } from '../rest-api.service';
 
 @Component({
   selector: 'app-login',
@@ -7,22 +9,32 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  sportsman: any;
 
-  constructor(private http: HttpClient) {
+  constructor(public api: RestApiService, public loadingCtrl: LoadingController, private  router:  Router) {
 
   }
 
   ngOnInit() {
-  }
-
-  signIn() {
 
   }
 
   signUp() {
-    this.http.get('http://learnifier.com/users').subscribe((response) => {
-      console.log(response);
-    });
+
+  }
+
+  async login(form) {
+    const loading = await this.loadingCtrl.create();
+    await loading.present();
+    await this.api.login(form.value.email, form.value.password)
+      .subscribe(res => {
+        console.log(res);
+        this.sportsman = res;
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      });
   }
 
 }
