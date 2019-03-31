@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
+
 import jsSHA from 'jssha';
 
 const httpOptions = {
@@ -17,7 +18,7 @@ export class RestApiService {
 
   constructor(private http: HttpClient) { }
 
-  private handleError(error: HttpErrorResponse) {
+  private async handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('Um erro ocorreu:', error.error.message);
@@ -26,8 +27,9 @@ export class RestApiService {
       // The response body may contain clues as to what went wrong,
       console.error(`API retornou o código ${error.status}: ${error.error}`);
     }
+
     // return an observable with a user-facing error message
-    return throwError('Algo de errado ocorreu, tente novamente em alguns minutos.');
+    return 0;
   }
 
   private extractData(res: Response) {
@@ -45,10 +47,11 @@ export class RestApiService {
     let passwordHash = this.encrypt(password);
 
     const url = `${apiUrl}/sportsman?email=${email}&password=${passwordHash}`;
-    return this.http.get(url, httpOptions).pipe(
+    let result = this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
+    return result
   }
 
 }
