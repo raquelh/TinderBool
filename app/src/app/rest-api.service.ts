@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'; 
 import { catchError, tap, map } from 'rxjs/operators';
 import jsSHA from 'jssha';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'}),
 };
-const apiUrl = "https://jsonplaceholder.typicode.com";
+const apiUrl = "https://api.com";
 
 @Injectable({
   providedIn: 'root'
@@ -35,16 +35,16 @@ export class RestApiService {
     return body || { };
   }
 
-  encrypt(text: string) {
+  private encrypt(text: string) {
     let shaObj = new jsSHA("SHA-256", "TEXT");
     shaObj.update(text);
     return shaObj.getHash("HEX");
   }
 
   login(email: string, password: string): Observable<any> {
-    const url = `${apiUrl}/users?email=${email}`;
     let passwordHash = this.encrypt(password);
-    console.log(passwordHash);
+
+    const url = `${apiUrl}/sportsman?email=${email}&password=${passwordHash}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError)

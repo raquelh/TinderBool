@@ -24,15 +24,16 @@ export class LoginPage implements OnInit {
   }
 
   async login(form) {
-    const loading = await this.loadingCtrl.create();
+    const loading = await this.loadingCtrl.create({
+      message: 'Carregando...',
+      spinner: 'crescent',
+      duration: 2000
+    });
     await loading.present();
     await this.api.login(form.value.email, form.value.password)
       .subscribe(res => {
         console.log(res);
         this.sportsman = res;
-        loading.dismiss();
-      }, err => {
-        console.log(err);
         loading.dismiss();
       });
   }
