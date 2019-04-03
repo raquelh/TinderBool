@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar class="ion-text-left">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      Cadastro de Equipe
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- ITENS INPUT -->
+    <ion-item>
+      <ion-label position="floating">Nome da Equipe</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Esporte da Equipe</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <!-- BOTÕES -->
+    <ion-row class="ion-text-center">
+        <ion-col align-self-center>
+            <ion-button href="../tabs/tab1" class="ion-padding" routerDirection="back" color="warning" id="bt-login">
+                <ion-icon name="person-add"></ion-icon>
+                Membros
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center">
+        <ion-col align-self-center>
+            <ion-button href="../tabs/tab3" class="ion-padding" routerDirection="forward" color="warning" id="bt-cadastro">
+                <ion-icon name="cog"></ion-icon>
+                Configurar
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

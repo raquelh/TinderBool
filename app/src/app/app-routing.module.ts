@@ -6,7 +6,10 @@ const routes: Routes = [
   { path: 'config-members', loadChildren: './config-members/config-members.module#ConfigMembersPageModule' },
   { path: 'config-private-team', loadChildren: './config-private-team/config-private-team.module#ConfigPrivateTeamPageModule' },
   { path: 'initial', loadChildren: './initial/initial.module#InitialPageModule' },
-  { path: 'equipes', loadChildren: './equipes/equipes.module#EquipesPageModule' }
+  { path: 'equipes', loadChildren: './equipes/equipes.module#EquipesPageModule' },
+  { path: 'local', loadChildren: './local/local.module#LocalPageModule' },
+  { path: 'cad-equipe', loadChildren: './cad-equipe/cad-equipe.module#CadEquipePageModule' },
+  { path: 'account', loadChildren: './account/account.module#AccountPageModule' }
 
 ];
 @NgModule({
