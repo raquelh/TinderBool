@@ -12,6 +12,15 @@ const routes: Routes = [
         children: [
           {
             path: '',
+            loadChildren: '../equipes/equipes.module#EquipesPageModule'
+          }
+        ]
+      },
+      {
+        path: 'tab2',
+        children: [
+          {
+            path: '',
             loadChildren: '../tab1/tab1.module#Tab1PageModule'
           }
         ]
@@ -27,7 +36,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/initial',
         pathMatch: 'full'
       }
     ]
