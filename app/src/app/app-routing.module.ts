@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'equipes', loadChildren: './equipes/equipes.module#EquipesPageModule' },
   { path: 'local', loadChildren: './local/local.module#LocalPageModule' },
   { path: 'cad-equipe', loadChildren: './cad-equipe/cad-equipe.module#CadEquipePageModule' },
-  { path: 'account', loadChildren: './account/account.module#AccountPageModule' }
+  { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
+  { path: 'add-members', loadChildren: './add-members/add-members.module#AddMembersPageModule' }
 
 ];
 @NgModule({
