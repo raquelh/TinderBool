@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar class="ion-text-left">
     <ion-buttons slot="start">
+      <!-- tab1 é a tab de equipes -->
       <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
     </ion-buttons>
 
@@ -17,9 +18,20 @@
       <ion-input></ion-input>
     </ion-item>
 
+    <!--
     <ion-item>
       <ion-label position="floating">Esporte da Equipe</ion-label>
       <ion-input></ion-input>
+    </ion-item>
+    -->
+
+    <ion-item>
+      <ion-label>Selecione um esporte</ion-label>
+      <ion-select value="futebol" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="futebol">Futebol</ion-select-option>
+        <ion-select-option value="volei">Vôlei</ion-select-option>
+        <ion-select-option value="basquete">Basquete</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <!-- BOTÕES -->

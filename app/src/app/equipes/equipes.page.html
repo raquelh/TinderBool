@@ -5,10 +5,15 @@
 </ion-header>
 
 <ion-content>
+    <!--
+    <ion-searchbar animated placeholder="Buscar equipes ou membros..."></ion-searchbar>
+    -->
 
     <ion-card>
         <ion-card-header>
+            <!-- NOME DA EQUIPE -->
             <ion-card-title>Equipe 1</ion-card-title>
+            <!-- ESPORTE -->
             <ion-card-subtitle>Vôlei</ion-card-subtitle>
         </ion-card-header>
 
@@ -17,6 +22,7 @@
             and climb a mountain or spend a week in the woods. Wash your spirit clean.
         </ion-card-content>
 
+        <!--CRIADOR DA EQUIPE-->
         <ion-chip>
           <ion-avatar>
             <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
@@ -25,50 +31,12 @@
         </ion-chip>
     </ion-card>
 
+
+    <!-- BOTÃO FLUTUANTE -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed" padding>
       <ion-fab-button color="warning" href="../cad-equipe" routerDirection="forward" >
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>
-
-    <!--
-    <ion-card>
-
-      <ion-item>
-
-        <ion-avatar item-start>
-          <img src="img/marty-avatar.png">
-        </ion-avatar>
-        <h2>Marty McFly</h2>
-        <p>November 5, 1955</p>
-      </ion-item>
-
-      <img src="img/advance-card-bttf.png">
-
-      <ion-card-content>
-        <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-      </ion-card-content>
-
-      <ion-row>
-        <ion-col>
-          <button ion-button icon-start clear small>
-            <ion-icon name="thumbs-up"></ion-icon>
-            <div>12 Likes</div>
-          </button>
-        </ion-col>
-        <ion-col>
-          <button ion-button icon-start clear small>
-            <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
-          </button>
-        </ion-col>
-        <ion-col align-self-center text-center>
-          <ion-note>
-            11h ago
-          </ion-note>
-        </ion-col>
-      </ion-row>
-
-    </ion-card>-->
 
 </ion-content>
