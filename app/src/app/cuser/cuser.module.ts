@@ -7,14 +7,19 @@ import { IonicModule } from '@ionic/angular';
 
 import { CuserPage } from './cuser.page';
 
-import { AppRoutingModule } from '../app-routing.module';
+const routes: Routes = [
+  {
+    path: '',
+    component: CuserPage
+  }
+]
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    // RouterModule.forChild()
+    RouterModule.forChild(routes)
   ],
   declarations: [CuserPage]
 })
