@@ -22,10 +22,6 @@ export class LoginPage implements OnInit {
 
   }
 
-  signUp() {
-
-  }
-
   async errorToast(title: string, message: string) {
     const alert = await this.alertController.create({
       header: title,
@@ -34,6 +30,7 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
+
 
   async login(form) {
     const loading = await this.loadingCtrl.create({

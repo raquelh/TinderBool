@@ -8,6 +8,8 @@ import jsSHA from 'jssha';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'}),
 };
+
+/* Nome qualquer, pois não temos isso ainda :) */
 const apiUrl = "https://api.com";
 
 @Injectable({
