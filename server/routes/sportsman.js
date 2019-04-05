@@ -9,11 +9,12 @@ router.get('/', (req, res) => {
         console.log('callback running');
         if (err) {
             console.log('there was an error');
-            res.send('return all sportspeople aa');
+            res.status(404).send();
+        } else {
+            console.log('sportspeople are');
+            console.log(sportspeople)
+            res.send(sportspeople);
         }
-        console.log('sportspeople are');
-        console.log(sportspeople)
-        res.send('return all sportspeople');
     });
 });
 
@@ -21,7 +22,11 @@ router.get('/:id', (req, res) => {
     SportsmanModel.findById(req.params.id, (err, sportsman) => {
         console.log('sportsman:');
         console.log(sportsman);
-        res.send(`return sportsperson with id = ${req.params.id}`);
+        if (err) {
+            res.status(404).send();
+        } else {
+            res.send(sportsman);
+        }
     });
 });
 
@@ -30,22 +35,42 @@ router.post('/', (req, res) => {
         ...req.body,
         // TODO: password: hashed_password 
     });
-    console.log('sportsman');
     console.log(sportsman);
-    res.send('add sportsman');
+    sportsman.save(err => {
+        if (err) {
+            console.log('could not save');
+            console.log(err);
+            res.status(400).send();
+        } else {
+            console.log('saved successfully');
+            res.status(201).send();
+        }
+    });
 });
 
 router.put('/:id', (req, res) => {
     res.send(`edit sportsman with id = ${req.params.id}`);
-    // SportsmanModel.findById(req.params.id, (err, sportsman) => {
 
-    // });
-
-    SportsmanModel.findOneAndUpdate({'_id': req.params.id}, req.body);
+    SportsmanModel.findOneAndUpdate({'_id': req.params.id}, req.body, (err, doc, updateRes) => {
+        if (err) {
+            console.log('failed to update');
+            res.status(400).send();
+        } else {
+            console.log('did update');
+            res.status(201).send();
+        }
+    });
 });
 
 router.get('/:id/sports', (req, res) => {
-    res.send(`Get all the sports of sportsman with id = ${req.params.id}`);
+    SportsmanModel.findById(req.params.id, (err, sportsman) => {
+        if (err) {
+            res.status(404).send();
+        } else {
+            console.log('found', sportsman)
+            res.send({"sports": sportsman.sports || []});
+        }
+    });
 });
 
 module.exports = router;
