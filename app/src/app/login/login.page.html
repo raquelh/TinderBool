@@ -1,3 +1,5 @@
+
+
 <ion-content padding>
   <form #form="ngForm" (ngSubmit)="login(form)">
 
@@ -6,6 +8,9 @@
 
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
 
+          <ion-buttons>
+            <ion-back-button defaultHref="/initial"></ion-back-button>
+          </ion-buttons>
           <div text-center>
             <h3>Login</h3>
           </div>
@@ -21,10 +26,6 @@
 
           <div padding>
             <ion-button type="submit" color="warning" [disabled]="form.invalid" expand="block">Login</ion-button>
-          </div>
-
-          <div padding>
-            <ion-button href="../tabs/tab1" expand="block" color="light">Cadastre-se</ion-button>
           </div>
 
         </ion-col>
