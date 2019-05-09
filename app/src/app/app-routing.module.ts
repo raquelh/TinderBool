@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'cad-equipe', loadChildren: './cad-equipe/cad-equipe.module#CadEquipePageModule' },
   { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
   { path: 'add-members', loadChildren: './add-members/add-members.module#AddMembersPageModule' },
-  { path: 'cuser', loadChildren: './cuser/cuser.module#CuserPageModule' }
+  { path: 'cuser', loadChildren: './cuser/cuser.module#CuserPageModule' },  { path: 'cad-user', loadChildren: './cad-user/cad-user.module#CadUserPageModule' }
+
 
 ];
 @NgModule({

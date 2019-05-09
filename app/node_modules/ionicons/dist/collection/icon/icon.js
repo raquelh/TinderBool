@@ -84,10 +84,11 @@ export class Icon {
         return `${this.resourcesUrl}svg/${name}.svg`;
     }
     hostData() {
+        const mode = this.mode || 'md';
         const flipRtl = this.flipRtl || (this.ariaLabel && this.ariaLabel.indexOf('arrow') > -1 && this.flipRtl !== false);
         return {
             'role': 'img',
-            class: Object.assign({}, createColorClasses(this.color), { [`icon-${this.size}`]: !!this.size, 'flip-rtl': flipRtl && this.doc.dir === 'rtl' })
+            class: Object.assign({ [`${mode}`]: true }, createColorClasses(this.color), { [`icon-${this.size}`]: !!this.size, 'flip-rtl': flipRtl && this.doc.dir === 'rtl' })
         };
     }
     render() {

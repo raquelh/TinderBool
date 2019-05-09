@@ -18,7 +18,7 @@
               <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
             </div>
           </ng-container>
-    </div>
+      </div>
 <!---sobrenome-->
     <ion-item>
         <ion-label position="floating" color="primary">Sobrenome</ion-label>
@@ -62,12 +62,11 @@
         <div class="validation-errors">
           <ng-container *ngFor="let validation of validation_messages.password">
             <div class="error-message" *ngIf="validateUser.get('matching_passwords').get('password').hasError(validation.type) && (validateUser.get('matching_passwords').get('password').dirty || validateUser.get('matching_passwords').get('password').touched)">
-            <div class="error-message" *ngIf="validateUser.get('matching_passwords').get('password').hasError(validation.type) && (validateUser.get('matching_passwords').get('password').dirty || validateUser.get('matching_passwords').get('password').touched)">
               <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
             </div>
           </ng-container>
         </div>
-  
+
         <ion-item>
           <ion-label position="floating" color="primary">Confirmar Senha</ion-label>
           <ion-input type="password" formControlName="confirm_password"></ion-input>
@@ -79,7 +78,7 @@
             </div>
           </ng-container>
         </div>
-  </div>
+    </div>
 
   <!-- These validations are for the form group -->
   <div class="validation-errors">
